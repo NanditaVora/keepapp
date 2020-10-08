@@ -11,7 +11,7 @@ class Note{
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'keepapp';
+  
   textColor: string = "white";
   errorMessage: string = "";
 

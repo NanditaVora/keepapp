@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { By } from '@angular/platform-browser';
 
 import { HeaderComponent } from './header.component';
 
@@ -8,7 +10,10 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      declarations: [ HeaderComponent ],
+      imports: [
+        MatToolbarModule
+      ]
     })
     .compileComponents();
   });
@@ -22,4 +27,14 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have mat-toolbar as header',()=>{
+    let toolbar = fixture.debugElement.query(By.css('mat-toolbar'))
+    expect(toolbar).toBeTruthy();
+  })
+
+  it('should have Keep App as title in toolbar',()=>{
+    let toolbar = fixture.debugElement.query(By.css('mat-toolbar'))
+    expect(toolbar.nativeElement.innerText).toContain('Keep App');
+  })
 });
