@@ -9,6 +9,8 @@ div{
 }
 
 mat-card{
-    width: 20vw;
-    height : 20vh;
+   display: inline-flex;
+   margin: 20px;
+   margin-top: 50px;
+   flex-direction: column;
 }
