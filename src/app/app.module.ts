@@ -14,7 +14,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 //for card
 import { MatCardModule } from '@angular/material/card';
 
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 
@@ -24,11 +24,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { NoteService } from './services/note.service';
 import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     HttpClientModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule
   ],
   providers: [NoteService],
   bootstrap: [AppComponent]

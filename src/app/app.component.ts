@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Note } from './models/note';
+import { AuthenticationService } from './services/authentication.service';
 import { NoteService } from './services/note.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class AppComponent {
 
   note : Note = new Note();
 
-  constructor(private noteService: NoteService){}
+  constructor(private noteService: NoteService, private authService: AuthenticationService){}
 
   validate(event){
     console.log(event);
@@ -31,7 +32,7 @@ export class AppComponent {
   }
 
   ngOnInit(){
-    this.noteService.getNotes()
+    this.noteService.getNotes(this.authService.getToken())
     .subscribe(response=>{
       this.notes = response
     },
@@ -48,13 +49,12 @@ export class AppComponent {
   }
 
   addNote(){
-    this.noteService.addNote(this.note)
+    this.noteService.addNote(this.note, this.authService.getToken())
     .subscribe(response=>{
       this.notes.push(response);
       console.log(this.notes);
       this.note = new Note();
-
-    },
+    },  
     error=>{
       if(error.status===404)
         console.log('Resource Not Found')

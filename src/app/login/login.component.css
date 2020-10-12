@@ -1,0 +1,13 @@
+form{
+    margin:50px 100px;
+}
+
+form div{
+    margin : 10px;
+}
+
+small{
+    display:block;
+    color:red;
+    font-style: italic;
+}
