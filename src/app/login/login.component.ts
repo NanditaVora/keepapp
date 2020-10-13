@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
+import { RouteService } from '../services/route.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,9 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService,
+    private routeService: RouteService
+    ) { }
 
   ngOnInit(): void {
   }
@@ -32,6 +35,7 @@ export class LoginComponent implements OnInit {
         console.log('success')
         console.log(data['token'])
         this.authService.setToken(data['token'])
+        this.routeService.toHome(this.getUsername().value);
       },
       error=>{
         console.log(error)
@@ -47,7 +51,6 @@ export class LoginComponent implements OnInit {
   getPassword(){
     return this.loginForm.get('password');
   }
-
   getUserNameErrorMessage(){
     if(this.getUsername().invalid && (this.getUsername().dirty || this.getUsername().touched))
       return 'Username should not be left blank'
