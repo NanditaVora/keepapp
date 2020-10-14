@@ -26,13 +26,17 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FontColorDirective } from './directives/font-color.directive';
+import { BackgroundDirective } from './directives/background.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    FontColorDirective,
+    BackgroundDirective
   ],
   imports: [
     BrowserModule,

@@ -27,7 +27,14 @@ Welcome {{loggedInName}}... You have logged in at : {{loggedInTime}}
     </div>
   </mat-expansion-panel>
 
-  <mat-card *ngFor="let note of notes">
+  <h4>Choose Background Color</h4>
+  <div>
+    <input type="radio" name="colors" (click)="background='lightgreen'">Green
+    <input type="radio" name="colors" (click)="background='lightyellow'">Yellow
+    <input type="radio" name="colors" (click)="background='lightcyan'">Cyan
+  </div>
+<!-- {{background}} -->
+  <mat-card appFontColor="darkblue" [appBackground]="background" *ngFor="let note of notes">
     <mat-card-header>
       <mat-card-title>
         {{note.title}}

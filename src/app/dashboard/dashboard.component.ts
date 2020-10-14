@@ -36,6 +36,8 @@ export class DashboardComponent implements OnInit {
 loggedInName: string = '';
 loggedInTime: string = '';
 
+background: string;
+
   ngOnInit(){
 
     this.activeRoute.params.subscribe(
