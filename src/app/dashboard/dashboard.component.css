@@ -1,16 +1,4 @@
-mat-expansion-panel{
-    width: 50vw;
-    margin: auto;
-    margin-top: 100px;
-}
 
 div{
     margin : 10px;
-}
-
-mat-card{
-   display: inline-flex;
-   margin: 20px;
-   margin-top: 50px;
-   flex-direction: column;
 }

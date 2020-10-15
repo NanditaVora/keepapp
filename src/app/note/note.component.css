@@ -1,0 +1,7 @@
+
+mat-card{
+    display: inline-flex;
+    margin: 20px;
+    margin-top: 50px;
+    flex-direction: column;
+ }

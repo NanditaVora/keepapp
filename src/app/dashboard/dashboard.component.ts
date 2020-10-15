@@ -17,9 +17,7 @@ export class DashboardComponent implements OnInit {
 
   note : Note = new Note();
 
-  constructor(private noteService: NoteService, 
-    private authService: AuthenticationService,
-    private activeRoute: ActivatedRoute
+  constructor(private activeRoute: ActivatedRoute
     ){}
 
   validate(event){
@@ -52,59 +50,28 @@ background: string;
       }
     )
 
-    this.noteService.getNotes(this.authService.getToken())
-    .subscribe(response=>{
-      this.notes = response
-    },
-    error=>{
-      if(error.status===404)
-        console.log('Resource Not Found')
-      else if(error.status===403)
-        console.log('Access Denied')
-      else if(error.status===401)
-        console.log('Unauthorized')
-      else
-        console.log('Unable to Process the Request Now, please try again later');
-    })
   }
 
-  addNote(){
-    this.noteService.addNote(this.note, this.authService.getToken())
-    .subscribe(response=>{
-      this.notes.push(response);
-      console.log(this.notes);
-      this.note = new Note();
-    },  
-    error=>{
-      if(error.status===404)
-        console.log('Resource Not Found')
-      else if(error.status===403)
-        console.log('Access Denied')
-      else if(error.status===401)
-        console.log('Unauthorized')
-      else
-        console.log('Unable to Process the Request Now, please try again later');
-    })
-  }
+  
 
-  deleteNote(noteId: Number){
-    this.noteService.deleteNote(noteId)
-    .subscribe(
-      response=>{
-        console.log('record deleted')
-        let noteIndex = this.notes.indexOf(this.note);
-        this.notes.splice(noteIndex,1)
-      }
-    ),
-    error=>{
-      if(error.status===404)
-      console.log('Resource Not Found')
-    else if(error.status===403)
-      console.log('Access Denied')
-    else if(error.status===401)
-      console.log('Unauthorized')
-    else
-      console.log('Unable to Process the Request Now, please try again later');
-    }
-  }
+  // deleteNote(noteId: Number){
+  //   this.noteService.deleteNote(noteId)
+  //   .subscribe(
+  //     response=>{
+  //       console.log('record deleted')
+  //       let noteIndex = this.notes.indexOf(this.note);
+  //       this.notes.splice(noteIndex,1)
+  //     }
+  //   ),
+  //   error=>{
+  //     if(error.status===404)
+  //     console.log('Resource Not Found')
+  //   else if(error.status===403)
+  //     console.log('Access Denied')
+  //   else if(error.status===401)
+  //     console.log('Unauthorized')
+  //   else
+  //     console.log('Unable to Process the Request Now, please try again later');
+  //   }
+  // }
 }

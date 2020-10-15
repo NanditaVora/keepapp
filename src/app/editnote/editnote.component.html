@@ -1,0 +1,19 @@
+
+<div>
+    <!-- Note Title: <input (change)="onChangeTitle($event)" [value]="note.title" [style.background-color]="textColor" type="text" > -->
+    <mat-form-field>
+      <input matInput [(ngModel)]="note.title" placeholder="Note Title" type="text" >
+    </mat-form-field>
+    <br/>
+    
+    {{errorMessage}}
+  </div>
+  <div>
+    <!-- Note Text: <textarea (change)="onChangeText($event)" [value]="note.text" ></textarea> -->
+    <mat-form-field>
+      <textarea matInput [(ngModel)]="note.text" placeholder="Note Text"></textarea>
+    </mat-form-field>
+  </div>
+  <div>
+    <button type="submit" (click)="saveNote()">Done</button>
+  </div>

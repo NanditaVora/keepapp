@@ -28,6 +28,12 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FontColorDirective } from './directives/font-color.directive';
 import { BackgroundDirective } from './directives/background.directive';
+import { NoteTakerComponent } from './note-taker/note-taker.component';
+import { NoteViewComponent } from './note-view/note-view.component';
+import { NoteComponent } from './note/note.component';
+import { EditNoteOpenerComponent } from './edit-note-opener/edit-note-opener.component';
+import { EditnoteComponent } from './editnote/editnote.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -36,7 +42,12 @@ import { BackgroundDirective } from './directives/background.directive';
     LoginComponent,
     DashboardComponent,
     FontColorDirective,
-    BackgroundDirective
+    BackgroundDirective,
+    NoteTakerComponent,
+    NoteViewComponent,
+    NoteComponent,
+    EditNoteOpenerComponent,
+    EditnoteComponent
   ],
   imports: [
     BrowserModule,
@@ -51,9 +62,11 @@ import { BackgroundDirective } from './directives/background.directive';
     HttpClientModule,
     MatIconModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [NoteService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [EditnoteComponent]
 })
 export class AppModule { }
