@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  errorMessage: string;
+
   loginForm = new FormGroup(
     {
       username: new FormControl('',[Validators.required]),
@@ -39,6 +41,7 @@ export class LoginComponent implements OnInit {
       },
       error=>{
         console.log(error)
+        this.errorMessage = 'Unauthorized'
       }
       )
   }
