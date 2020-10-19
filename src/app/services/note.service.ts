@@ -2,19 +2,22 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { Note } from '../models/note';
 import { AuthenticationService } from './authentication.service';
 
 @Injectable()
 export class NoteService {
 
+  // http://localhost:3000/api/v1/notes
   notes: Array<Note>=[];
   noteSubject : BehaviorSubject<Array<Note>> = new BehaviorSubject(this.notes);
 
   constructor(private httpClient: HttpClient,
     private authService: AuthenticationService
     ) {
-    this.httpClient.get<Array<Note>>('http://localhost:3000/api/v1/notes',{
+      console.log(environment.news_api)
+    this.httpClient.get<Array<Note>>(environment.news_api,{
       headers: new HttpHeaders().set('Authorization',`Bearer ${this.authService.getToken()}`)
     }).subscribe(
       response=>{

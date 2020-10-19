@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve": "node bin/www"
+    "serve": "node bin/www",
+    "buildProd": "ng build --base-href=/keepapp/"
   },
   "private": true,
   "dependencies": {
