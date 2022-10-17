@@ -10,26 +10,30 @@ import { NoteService } from '../services/note.service';
 })
 export class NoteViewComponent implements OnInit {
 
-  notes: Array<Note> = [];
+  notes: Array<Note> = [{
+    "id":1,
+    "title":"first note",
+    "text": "first note text"
+  }];
 
   constructor(private noteService: NoteService, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
     
-    this.noteService.getNotes(this.authService.getToken())
-    .subscribe(response=>{
-      this.notes = response
-    },
-    error=>{
-      if(error.status===404)
-        console.log('Resource Not Found')
-      else if(error.status===403)
-        console.log('Access Denied')
-      else if(error.status===401)
-        console.log('Unauthorized')
-      else
-        console.log('Unable to Process the Request Now, please try again later');
-    })
+//     this.noteService.getNotes(this.authService.getToken())
+//     .subscribe(response=>{
+//       this.notes = response
+//     },
+//     error=>{
+//       if(error.status===404)
+//         console.log('Resource Not Found')
+//       else if(error.status===403)
+//         console.log('Access Denied')
+//       else if(error.status===401)
+//         console.log('Unauthorized')
+//       else
+//         console.log('Unable to Process the Request Now, please try again later');
+//     })
   }
 
 }
